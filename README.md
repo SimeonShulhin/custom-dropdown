@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Custom Dropdown
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Small React app demonstrating a flexible custom dropdown component.
 
-## Available Scripts
+## Quick start
 
-In the project directory, you can run:
+Install deps and start development server:
 
-### `npm start`
+```sh
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The app entry is `src/index.js` and the demo page is rendered from `src/components/DropDownDemo.jsx`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project structure
 
-### `npm test`
+```
+.
+├─ [`package.json`](package.json )
+├─ public/
+│  └─ [`public/index.html`](public/index.html )
+└─ src/
+	├─ [`src/index.js`](src/index.js )              # app entry (imports compiled Tailwind css: src/output.css)
+	├─ [`src/output.css`](src/output.css )            # compiled Tailwind CSS shipped with the project
+	├─ [`src/index.css`](src/index.css )             # original Tailwind import (not used at runtime here)
+	├─ [`src/App.js`](src/App.js )
+	├─ components/
+	│  ├─ [`src/components/CustomDropdown.jsx`](src/components/CustomDropdown.jsx )   # main reusable component ([`CustomDropdown`](src/components/CustomDropdown.jsx ))
+	│  ├─ [`src/components/DropDownDemo.jsx`](src/components/DropDownDemo.jsx )     # demo page that uses [`CustomDropdown`](src/components/CustomDropdown.jsx )
+	│  └─ [`src/components/DropdownRenderers.js`](src/components/DropdownRenderers.js )  # option render helpers
+	├─ utils/
+	│  └─ [`src/utils/dropdownUtils.js`](src/utils/dropdownUtils.js )     # helper functions ([`dropdownUtils`](src/utils/dropDownUtils.js ))
+	└─ data/
+		└─ [`src/data/mockData.js`](src/data/mockData.js )         # sample options, users, countries
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Key files and symbols
+- Component: [`CustomDropdown`](src/components/CustomDropdown.jsx) — dropdown implementation and keyboard/accessibility handling.
+- Demo: [src/components/DropDownDemo.jsx](src/components/DropDownDemo.jsx) — showcases variants (async search, custom renderers, multiple dropdowns).
+- Utils: [`dropdownUtils`](src/utils/dropdownUtils.js) — value/label helpers and search helpers.
+- CSS: [src/output.css](src/output.css) — compiled Tailwind output used by the app (imported in [src/index.js](src/index.js)). If you change Tailwind sources, regenerate this file or switch your build to use a PostCSS/Tailwind pipeline.
 
-### `npm run build`
+## Notes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- This repo ships with a precompiled Tailwind file at [src/output.css](src/output.css). If you prefer to build Tailwind locally, replace the import in [src/index.js](src/index.js) with [src/index.css](src/index.css) and configure PostCSS/Tailwind accordingly.
+- Run the tests with `npm test` (see [src/App.test.js](src/App.test.js)).
+- For styling helpers and example renderers see [src/components/DropdownRenderers.js](src/components/DropdownRenderers.js).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
